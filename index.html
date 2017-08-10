@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image editor</title>
+
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script rel="script" src="./public/bundle.js"></script>
+
+</head>
+<body>
+    <div class="options">
+
+        <button id="undo" name="Undo">
+            <i class="fa fa-undo" aria-hidden="true"></i>
+        </button><!--
+        --><button id="redo" name="Redo">
+            <i class="fa fa-repeat" aria-hidden="true"></i>
+        </button><!--
+        --><button id="save" name="Save"> Save </button><!--
+        --><button id="load" name="Load"> Load </button><!--
+        --><button id="clear" name="Clear">Clear</button><!--
+        --><button id="plus" name="Plus">
+            <i class="fa fa-search-plus" aria-hidden="true"></i>
+        </button><!--
+        --><button id="minus" name="Minus">
+            <i class="fa fa-search-minus" aria-hidden="true"></i>
+        </button><!--
+        --><select id="lineWidth">
+            <option value="1" selected>1 px</option>
+            <option value="2">2 px</option>
+            <option value="4">4 px</option>
+            <option value="6">6 px</option>
+            <option value="8">8 px</option>
+        </select><!--
+        --><input id="lineColor" type="color" value="#2A2A2A" name="<имя>"><!--
+        --><select id="filter">
+            <option selected>none</option>
+            <option>Размытие</option>
+            <option>Яркость</option>
+            <option>Контраст</option>
+            <option>Тени</option>
+            <option>Черно-белый</option>
+            <option>Инвертировать</option>
+        </select>
+
+    </div>
+
+    <div class="container">
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+    </div>
+
+</body>
+</html>
