@@ -49,6 +49,7 @@ window.onload = function () {
 
     change_width();
     change_color();
+    filterCanvas();
 
     function mouse_down() {
         context.beginPath();
