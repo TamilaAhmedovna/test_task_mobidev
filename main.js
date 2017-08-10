@@ -1,5 +1,6 @@
-window.onload = function () {
+import Buffer from './Buffer';
 
+window.onload = function () {
     var canvasElement = document.getElementById('myCanvas');
 
     var widthElement = document.getElementById('lineWidth');
@@ -46,7 +47,10 @@ window.onload = function () {
     minusElement.addEventListener('click', minusCanvas);
     filterElement.addEventListener('change', filterCanvas);
 
-    function mouse_down(e) {
+    change_width();
+    change_color();
+
+    function mouse_down() {
         context.beginPath();
         canvasElement.addEventListener('mousemove', mouse_move);
         document.addEventListener('mouseup', mouse_up);
@@ -92,7 +96,6 @@ window.onload = function () {
     function clearCanvas(e) {
         context.clearRect(0, 0, widthCanvas, heightCanvas);
         buffer.clear();
-        console.log('clear');
     }
 
     function undoCanvas() {
@@ -189,50 +192,6 @@ window.onload = function () {
         };
 
         img.src = image;
-    }
-
-    function Buffer(dataUrl){
-        this.items = [dataUrl];
-        this.index = this.items.length - 1;
-
-        this.currentElem = function () {
-            return this.items[this.index];
-        };
-
-        this.add = function (dataUrl) {
-            this.items.push(dataUrl);
-            this.index = this.items.length - 1;
-            this.items = this.items.slice(0, this.index + 1);
-        };
-
-        this.clear = function () {
-            this.items = [];
-            this.index = 0;
-        };
-
-        this.save = function () {
-            this.items.splice(this.index + 1, this.items.length - this.index);
-        };
-
-        this.load = function (dataUrlArr) {
-            this.items = dataUrlArr;
-            this.index = this.items.length - 1;
-        };
-
-        this.undo = function () {
-            if (this.index === 0) return this.currentElem();
-
-            this.index -= 1;
-            return this.currentElem();
-        };
-
-        this.redo = function () {
-            if (this.index >= this.items.length - 1) return this.currentElem();
-
-            this.index += 1;
-            return this.currentElem();
-        };
-
     }
 
 };
