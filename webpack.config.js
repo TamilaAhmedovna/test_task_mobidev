@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
     context: path.resolve(__dirname),
-    entry: './main',
+    entry: './scripts/main',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js'
