@@ -18,13 +18,13 @@ class Buffer {
     };
 
     add(dataUrl) {
+        this.items = this.items.slice(0, this.index + 1);
         this.items.push(dataUrl);
         this.index = this.items.length - 1;
-        this.items = this.items.slice(0, this.index + 1);
     };
 
     clear() {
-        this.items = [];
+        this.items.splice(1, this.items.length);
         this.index = 0;
     };
 
